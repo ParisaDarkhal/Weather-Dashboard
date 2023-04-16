@@ -11,7 +11,7 @@ body {
 
 @media (min-width: 768px) {
   .mainBox {
-    max-width: 800px !important; /* change based on design requirments */
+    max-width: 1000px !important; /* change based on design requirments */
   }
 }
 .attribution {
