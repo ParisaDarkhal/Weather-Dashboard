@@ -26,44 +26,102 @@
     <link rel="stylesheet" href="./assets/styles.css" />
   </head>
   <body>
+    <!--The main container that holds everything-->
     <div class="container bg-light rounded-3 position-relative mainBox">
-      <section class="present-day">
-        <article class="date-box" id="date-box">
-          <div class="time" id="time">
-            <p>hour:min <span id="am-pm">am/pm</span></p>
-          </div>
-          <div class="today-date" id="today-date">
-            <h5>week-day / day / month</h5>
-          </div>
-          <div class="current-weater" id="current-weater">
-            <div class="condition">
-              <div>
-                <p>icon represents weather (sould be changed into img tag)</p>
+      <!-- the top container that shows present day -->
+      <div class="row">
+        <section class="col-12 col-md-6 present-day">
+          <article class="date-box" id="date-box">
+            <div class="time" id="time">
+              <p>hour:min <span id="am-pm">am/pm</span></p>
+            </div>
+            <div class="today-date" id="today-date">
+              <h5>week-day / day / month</h5>
+            </div>
+            <div class="current-weater" id="current-weater">
+              <div class="condition">
+                <div>
+                  <p>icon represents weather (sould be changed into img tag)</p>
+                </div>
+              </div>
+              <div class="condition">
+                <div><p>tempreture</p></div>
+                <div><p>some number in F or C</p></div>
+              </div>
+              <div class="condition">
+                <div><p>Humidity</p></div>
+                <div><p>some number %</p></div>
+              </div>
+              <div class="condition">
+                <div><p>wind speed</p></div>
+                <div><p>some number mile/hr</p></div>
               </div>
             </div>
-            <div class="condition">
-              <div><p>tempreture</p></div>
-              <div><p>some number in F or C</p></div>
-            </div>
-            <div class="condition">
-              <div><p>Humidity</p></div>
-              <div><p>some number %</p></div>
-            </div>
-            <div class="condition">
-              <div><p>wind speed</p></div>
-              <div><p>some number mile/hr</p></div>
-            </div>
+          </article>
+        </section>
+        <!-- the container that shows the selected city -->
+        <section class="col-12 col-md-6 city-box" id="city-box">
+          <div class="time-zone" id="time-zone">City of Interest</div>
+          <div class="location" id="location">
+            the geografical latitude/longitude
           </div>
-        </article>
-      </section>
-      <section class="city-box" id="city-box">
-        <div class="time-zone" id="time-zone">City of Interest</div>
-        <div class="location" id="location">
-          the geografical latitude/longitude
+          <div class="search-city">
+            <form class="row g-3">
+              <div class="col-6">
+                <label for="inputEmail4" class="form-label">Search City</label>
+                <input type="email" class="form-control" id="inputEmail4" />
+              </div>
+              <div class="col-6 mt-5">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <!-- the bottom container that shows the future days -->
+      <section class="row future-days">
+        <!-- day n forcast box -->
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+          <div class="day">Date of the day</div>
+          <div>
+            <p>icon represents weather (sould be changed into img tag)</p>
+          </div>
+          <div><p>Temprature in F or C</p></div>
+          <div><p>Humidity in %</p></div>
+          <div><p>Wind speed mile/hour</p></div>
         </div>
-      </section>
-      <section class="future-days">
-        <div class="forecast-item">
+        <!-- day n forcast box -->
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+          <div class="day">Date of the day</div>
+          <div>
+            <p>icon represents weather (sould be changed into img tag)</p>
+          </div>
+          <div><p>Temprature in F or C</p></div>
+          <div><p>Humidity in %</p></div>
+          <div><p>Wind speed mile/hour</p></div>
+        </div>
+        <!-- day n forcast box -->
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+          <div class="day">Date of the day</div>
+          <div>
+            <p>icon represents weather (sould be changed into img tag)</p>
+          </div>
+          <div><p>Temprature in F or C</p></div>
+          <div><p>Humidity in %</p></div>
+          <div><p>Wind speed mile/hour</p></div>
+        </div>
+        <!-- day n forcast box -->
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+          <div class="day">Date of the day</div>
+          <div>
+            <p>icon represents weather (sould be changed into img tag)</p>
+          </div>
+          <div><p>Temprature in F or C</p></div>
+          <div><p>Humidity in %</p></div>
+          <div><p>Wind speed mile/hour</p></div>
+        </div>
+        <!-- day n forcast box -->
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
           <div class="day">Date of the day</div>
           <div>
             <p>icon represents weather (sould be changed into img tag)</p>
