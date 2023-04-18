@@ -9,6 +9,10 @@ body {
   font-family: "Karla", sans-serif !important; /* change based on design requirments */
 }
 
+img {
+  width: 4rem;
+}
+
 @media (min-width: 768px) {
   .mainBox {
     max-width: 1000px !important; /* change based on design requirments */
