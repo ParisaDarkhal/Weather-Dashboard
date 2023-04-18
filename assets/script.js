@@ -29,7 +29,7 @@ $("form").submit(function (event) {
 
 // functions
 function getWeatherData() {
-  let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=metric`;
+  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=metric`;
   console.log("queryURL :>> ", queryURL);
   //   fetch
   fetch(queryURL)
