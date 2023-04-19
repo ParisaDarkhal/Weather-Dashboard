@@ -102,7 +102,7 @@ function get5dayForecast(lat, lon) {
         let wind = (day.wind.speed * 3.6).toFixed(2);
 
         let forcastCard = `
-        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+        <div class="col-12 col-md-6 col-lg-4 forecast-item-day">
         <div class="card my-2">
         <img src="https://openweathermap.org/img/w/${icon}.png" class="card-img-top" alt="icon represents weather" />
         <div class="card-body">
