@@ -104,7 +104,7 @@ function get5dayForecast(lat, lon) {
         let forcastCard = `
         <div class="col-12 col-md-6 col-lg-4 forecast-item-day">
         <div class="card my-2">
-        <img src="https://openweathermap.org/img/w/${icon}.png" class="card-img-top" alt="icon represents weather" />
+        <img src="https://openweathermap.org/img/w/${icon}.png" class="card-img-top" alt="icon represents weather" id="forecast-icon" />
         <div class="card-body">
           <div class="card-text">
             <div class="day">${date}</div>

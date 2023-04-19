@@ -9,7 +9,10 @@ body {
   font-family: "Karla", sans-serif !important; /* change based on design requirments */
 }
 
-img {
+#today-icon {
+  width: 4rem;
+}
+#forecast-icon {
   width: 4rem;
 }
 
