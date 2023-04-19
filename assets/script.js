@@ -38,6 +38,7 @@ function getWeatherData() {
     })
     .then(function (data) {
       showWeatherData(data);
+      getCoordinates();
     });
 }
 
@@ -67,4 +68,55 @@ function showWeatherData(data) {
     "Wind Speed: " + (data.wind.speed * 3.6).toFixed(2) + " Km/hr"
   );
   $(cardToday).append(windToday);
+}
+
+function getCoordinates() {
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKey}`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      let lat = data[0].lat;
+      let lon = data[0].lon;
+
+      get5dayForecast(lat, lon);
+    });
+}
+
+function get5dayForecast(lat, lon) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=metric`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data :>> ", data);
+
+      $("#forecast-container").html("");
+
+      for (let i = 0; i < data.list.length; i += 8) {
+        let day = data.list[i];
+        let date = day.dt_txt.split(" ")[0];
+        let icon = day.weather[0].icon;
+        let temperature = day.main.temp.toFixed(0);
+        let humidity = day.main.humidity;
+        let wind = (day.wind.speed * 3.6).toFixed(2);
+
+        let forcastCard = `
+        <div class="col-12 col-md-6 col-lg-2 forecast-item-day">
+        <div class="card my-2">
+        <img src="https://openweathermap.org/img/w/${icon}.png" class="card-img-top" alt="icon represents weather" />
+        <div class="card-body">
+          <div class="card-text">
+            <div class="day">${date}</div>
+
+            <div><p>Temperature: ${temperature} ℃</p></div>
+            <div><p>Humidity: ${humidity} %</p></div>
+            <div><p>Wind Speed: ${wind} Km/hr</p></div>
+          </div>
+        </div>
+      </div>
+      </div>`;
+        $("#forecast-container").append(forcastCard);
+      }
+    });
 }
