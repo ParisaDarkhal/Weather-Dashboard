@@ -72,7 +72,7 @@ function showWeatherData(data) {
 
 function getCoordinates() {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKey}`
   )
     .then((res) => res.json())
     .then((data) => {
