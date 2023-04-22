@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico" />
-    <!-- put favicon image in the href here -->
 
     <title>Weather Dashboard</title>
 
-    <!-- Put google font link under this line -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap"
@@ -23,6 +20,12 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <!-- jquery UI css -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+
     <!-- costomized css -->
     <link rel="stylesheet" href="./assets/styles.css" />
   </head>
@@ -65,6 +68,7 @@
                   id="inputCity"
                   value=""
                 />
+                <ul class="my-1" id="selectable"></ul>
               </div>
               <div class="col-6 mt-5">
                 <button type="submit" class="btn btn-primary" id="searchBtn">
@@ -103,6 +107,9 @@
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
     ></script>
+
+    <!-- jquery UI cdn -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <!-- costomized script -->
     <script src="./assets/script.js"></script>

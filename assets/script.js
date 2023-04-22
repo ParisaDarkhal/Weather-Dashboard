@@ -10,6 +10,9 @@ $(time).append(showTime);
 let APIKey = "ae11ba5de350e5ab9401e30d33257531";
 let city;
 
+// assign local storage
+localStorage.setItem("userInputArray", JSON.stringify([]));
+
 // getting html elements from html
 let todayImg = $(".card-img-today");
 let cardToday = $(".card-text-today");
@@ -23,7 +26,18 @@ $("#inputCity").change(function (event) {
 $("form").submit(function (event) {
   event.preventDefault();
   city = $(inputCity).val();
+  //save user searche for city into local storage
 
+  let userInputArray = JSON.parse(localStorage.getItem("userInputArray"));
+  if (!userInputArray.includes(city)) {
+    userInputArray.push(city.toUpperCase());
+  }
+  console.log("localStorage :>> ", localStorage);
+  localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
+  createSelectableList(userInputArray);
+  $(function () {
+    $("#selectable").selectable();
+  });
   getWeatherData();
 });
 
@@ -119,4 +133,14 @@ function get5dayForecast(lat, lon) {
         $("#forecast-container").append(forcastCard);
       }
     });
+}
+
+// for selectable
+function createSelectableList(userList) {
+  $("#selectable").html("");
+  for (let i = 0; i < userList.length; i++) {
+    $("#selectable").append(
+      `<li class="ui-widget-content d-block">${userList[i]}</li>`
+    );
+  }
 }
