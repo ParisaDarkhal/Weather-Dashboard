@@ -5,8 +5,19 @@ body {
   justify-content: center;
   min-height: 100vh;
   position: relative;
-  background-color: #e6eff6 !important; /* change based on design requirments */
-  font-family: "Karla", sans-serif !important; /* change based on design requirments */
+  background-color: #e6eff6 !important;
+  font-family: "Karla", sans-serif !important;
+}
+
+.mainBox {
+  opacity: 80%;
+}
+
+.city-list:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: aliceblue;
+  box-shadow: 5px 5px 5px gray;
 }
 
 #today-icon {

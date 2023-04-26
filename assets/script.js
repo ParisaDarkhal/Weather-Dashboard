@@ -150,7 +150,7 @@ function createSelectableList(userList) {
   $("#selectable").html("");
   for (let i = 0; i < userList.length; i++) {
     $("#selectable").append(
-      `<li class="ui-widget-content d-block" onclick="searchAgain(this)">${userList[i]}</li>`
+      `<li class="ui-widget-content d-block my-1 city-list" onclick="searchAgain(this)">${userList[i]}</li>`
     );
   }
 }
