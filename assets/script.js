@@ -11,7 +11,14 @@ let APIKey = "ae11ba5de350e5ab9401e30d33257531";
 let city;
 
 // assign local storage
-localStorage.setItem("userInputArray", JSON.stringify([]));
+// localStorage.setItem("userInputArray", JSON.stringify([]));
+let userInputArray = [];
+
+// onload show previous searched cities
+if (localStorage.getItem("userInputArray") !== null) {
+  userInputArray = JSON.parse(localStorage.getItem("userInputArray"));
+  createSelectableList(userInputArray);
+}
 
 // getting html elements from html
 let todayImg = $(".card-img-today");
@@ -20,23 +27,25 @@ let cardToday = $(".card-text-today");
 // getting User input
 $("#inputCity").change(function (event) {
   $("#inputCity").val(event.target.value);
-  //   $(inputCity).text(inputCity.val());
-  console.log("inputCity :>> ", $("#inputCity").val());
 });
 $("form").submit(function (event) {
   event.preventDefault();
   city = $(inputCity).val();
   //save user searche for city into local storage
 
-  let userInputArray = JSON.parse(localStorage.getItem("userInputArray"));
-  if (!userInputArray.includes(city)) {
+  if (localStorage.getItem("userInputArray") !== null) {
+    userInputArray = JSON.parse(localStorage.getItem("userInputArray"));
+    createSelectableList(userInputArray);
+  } else {
     userInputArray.push(city.toUpperCase());
   }
-  console.log("localStorage :>> ", localStorage);
+  if (!userInputArray.includes(city.toUpperCase())) {
+    userInputArray.push(city.toUpperCase());
+  }
   localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
   createSelectableList(userInputArray);
   $(function () {
-    $("#selectable").selectable();
+    // $("#selectable").selectable();
   });
   getWeatherData();
 });
@@ -44,7 +53,6 @@ $("form").submit(function (event) {
 // functions
 function getWeatherData() {
   let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=metric`;
-  console.log("queryURL :>> ", queryURL);
   //   fetch
   fetch(queryURL)
     .then(function (response) {
@@ -103,8 +111,6 @@ function get5dayForecast(lat, lon) {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log("data :>> ", data);
-
       $("#forecast-container").html("");
 
       for (let i = 0; i < data.list.length; i += 8) {
@@ -137,10 +143,16 @@ function get5dayForecast(lat, lon) {
 
 // for selectable
 function createSelectableList(userList) {
+  console.log("hi");
   $("#selectable").html("");
   for (let i = 0; i < userList.length; i++) {
     $("#selectable").append(
-      `<li class="ui-widget-content d-block">${userList[i]}</li>`
+      `<li class="ui-widget-content d-block" onclick="searchAgain(this)">${userList[i]}</li>`
     );
   }
+}
+
+// to make the city button search again
+function searchAgain(element) {
+  $("#inputCity").val($(element).text());
 }

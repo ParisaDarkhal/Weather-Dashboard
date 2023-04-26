@@ -16,6 +16,10 @@ body {
   width: 4rem;
 }
 
+.cityBtn:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .mainBox {
     max-width: 1000px !important; /* change based on design requirments */
