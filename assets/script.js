@@ -10,6 +10,10 @@ $(time).append(showTime);
 let APIKey = "ae11ba5de350e5ab9401e30d33257531";
 let city;
 
+$(function () {
+  $("#today-card").hide();
+});
+
 // assign local storage
 // localStorage.setItem("userInputArray", JSON.stringify([]));
 let userInputArray = [];
@@ -44,9 +48,7 @@ $("form").submit(function (event) {
   }
   localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
   createSelectableList(userInputArray);
-  $(function () {
-    // $("#selectable").selectable();
-  });
+
   getWeatherData();
 });
 
@@ -66,6 +68,7 @@ function getWeatherData() {
 
 // functions
 function showWeatherData(data) {
+  $("#today-card").show();
   $(cardToday).html("");
   $(cardToday).append(
     "<h4 style='text-transform:uppercase'>" + $(inputCity).val() + "</h4>"
