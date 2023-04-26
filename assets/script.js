@@ -116,7 +116,7 @@ function get5dayForecast(lat, lon) {
     .then((data) => {
       $("#forecast-container").html("");
 
-      for (let i = 0; i < data.list.length; i += 8) {
+      for (let i = 1; i < data.list.length; i += 8) {
         let day = data.list[i];
         let date = day.dt_txt.split(" ")[0];
         let icon = day.weather[0].icon;
